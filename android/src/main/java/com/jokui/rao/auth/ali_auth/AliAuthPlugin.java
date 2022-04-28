@@ -451,7 +451,7 @@ public class AliAuthPlugin extends FlutterActivity implements FlutterPlugin, Met
                 !tokenRet.getCode().equals("700003") &&
                 !tokenRet.getCode().equals("700004")
             ) || (
-                tokenRet.getCode().equals("700002") && Boolean.parseBoolean(String.valueOf(viewConfig.get("logBtnToastHidden")))
+                tokenRet.getCode().equals("700002") && !Boolean.parseBoolean(String.valueOf(viewConfig.get("logBtnToastHidden")))
             )
         ) {
             mAlicomAuthHelper.quitLoginPage();
