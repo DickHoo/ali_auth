@@ -70,7 +70,6 @@ class AliAuthPlugin {
     startTime = new DateTime.now().millisecondsSinceEpoch;
     return await _channel.invokeMethod('login');
   }
-
   ///@Deprecated('该接口将在 v0.1.2 之前可继续使用，在以后版本执行删除，请尽快修改')
 
   /// 一键登录
@@ -103,5 +102,10 @@ class AliAuthPlugin {
         onError: onError,
         onDone: null,
         cancelOnError: null);
+  }
+
+  /// 退出一键登录页面
+  static closeLogin(){
+    return _channel.invokeMapMethod("quitPage");
   }
 }

@@ -158,6 +158,7 @@ public class MainPortraitActivity implements PluginRegistry.ActivityResultListen
 
         // 判断是否使用dialog登录
         boolean type = (boolean) call.argument("type");
+        Log.i(TAG, "configLoginTokenPort: "+type);
         if(type){
             configLoginTokenPort(call, methodResult);
         } else {
@@ -306,14 +307,14 @@ public class MainPortraitActivity implements PluginRegistry.ActivityResultListen
 
     // 自定义UI
     private void initDynamicView() {
-//        switchTV = LayoutInflater.from(context).inflate(R.layout.custom_login_add, new RelativeLayout(context), false);
-//        RelativeLayout.LayoutParams mLayoutParams2 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, dp2px(activity, 150));
-//        mLayoutParams2.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE);
-//        mLayoutParams2.setMargins(0, dp2px(context, 450), 0, 0);
+        switchTV = LayoutInflater.from(context).inflate(R.layout.custom_switch_other, new RelativeLayout(context), false);
+        RelativeLayout.LayoutParams mLayoutParams2 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, dp2px(activity, 150));
+        mLayoutParams2.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE);
+        mLayoutParams2.setMargins(0, dp2px(context, 450), 0, 0);
 //        switchTV.setText("-----  自定义view  -----");
 //        switchTV.setTextColor(0xff999999);
 //        switchTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13.0F);
-//        switchTV.setLayoutParams(mLayoutParams2);
+        switchTV.setLayoutParams(mLayoutParams2);
     }
 
     private ImageView createLandDialogPhoneNumberIcon( float rightMargin, float topMargin, float fontSize) {

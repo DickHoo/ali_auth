@@ -751,7 +751,7 @@ return AliAuthModel.fromJson({
   'navReturnImgWidth': 30,
   'navReturnImgHeight': 30,
   'navReturnOffsetX': 15,
-  'navReturnOffsetY': 5,
+  'navReturnOffsetY': 40,
   'navHidden': false,
   'webViewStatusBarColor': "#ffff00",
   'webNavColor': "#00ffff",

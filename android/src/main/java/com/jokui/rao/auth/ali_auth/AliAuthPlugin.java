@@ -449,7 +449,8 @@ public class AliAuthPlugin extends FlutterActivity implements FlutterPlugin, Met
                 !tokenRet.getCode().equals("600001") &&
                 !tokenRet.getCode().equals("700002") &&
                 !tokenRet.getCode().equals("700003") &&
-                !tokenRet.getCode().equals("700004")
+                !tokenRet.getCode().equals("700004")&&
+                !tokenRet.getCode().equals("700005")//第三方登陆
             ) || (
                 tokenRet.getCode().equals("700002") && !Boolean.parseBoolean(String.valueOf(viewConfig.get("logBtnToastHidden")))
             )
@@ -494,6 +495,7 @@ public class AliAuthPlugin extends FlutterActivity implements FlutterPlugin, Met
 //                Log.d(TAG, ("login_right 被点击了"));
 //            }
 //        });
+
         TextView txv = v.findViewById(R.id.slogan_title);
         txv.setTextSize(fontSize);
         // int size = AppUtils.dp2px(context, 23);
@@ -507,6 +509,8 @@ public class AliAuthPlugin extends FlutterActivity implements FlutterPlugin, Met
     // 自定义UI
     private void initDynamicView() {
         assert viewConfig != null;
+        Log.i("Hoo>>>>ui",(dataStatus( viewConfig, "isHiddenCustom"))+"");
+        Log.i("Hoo>>>>ui",viewConfig.toString());
         if (!dataStatus( viewConfig, "isHiddenCustom")) {
             int getCustomXml = mContext.getResources().getIdentifier("custom_login", "layout", mContext.getPackageName());
             // 判断是否有自定义布局文件，没有则加载默认布局文件
@@ -516,16 +520,16 @@ public class AliAuthPlugin extends FlutterActivity implements FlutterPlugin, Met
             switchTV = LayoutInflater.from(mContext).inflate(getCustomXml, new RelativeLayout(mContext), false);
             RelativeLayout.LayoutParams mLayoutParams2 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, dp2px(activity, 150));
             mLayoutParams2.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE);
-            mLayoutParams2.setMargins(0, dp2px(mContext, 400), 0, 0);
+            mLayoutParams2.setMargins(0, dp2px(mContext, 520), 0, 0);
 
             // 获取到图片列表的父控件
             RelativeLayout listParent = switchTV.findViewById(R.id.login);
             // 循环监听图片按钮
             for (int i = 0; i < listParent.getChildCount(); i++) {
                 View view = listParent.getChildAt(i);
-                if (view instanceof ImageView) {
+                if (view instanceof TextView) {
                     final int finalI = i;
-                    ((ImageView) view).setImageURI(Uri.parse("https://www.baidu.com/img/flexible/logo/pc/result@2.png"));
+//                    ((ImageView) view).setImageURI(Uri.parse("https://www.baidu.com/img/flexible/logo/pc/result@2.png"));
                     view.setOnClickListener(new View.OnClickListener() {
                         @Override public void onClick(View v) {
                             Log.d(TAG, "您点击了第" + finalI + "个按钮");

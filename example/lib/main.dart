@@ -37,9 +37,9 @@ void main() async {
     ),
   );
 
-  SystemUiOverlayStyle systemUiOverlayStyle =
-      SystemUiOverlayStyle(statusBarColor: Colors.transparent);
-  SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+  // SystemUiOverlayStyle systemUiOverlayStyle =
+  //     SystemUiOverlayStyle(statusBarColor: Colors.white);
+  // SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
 }
 
 class MyApp extends StatefulWidget {
