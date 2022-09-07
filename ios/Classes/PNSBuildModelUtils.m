@@ -316,15 +316,15 @@
   model.hideNavBackItem = isHiddenNavBack;
   /// 动态读取assets文件夹下的资源
   UIImage * navBackImage = [self changeUriPathToImage: viewConfig[@"navReturnImgPath"]];
-//  if(navBackImage != nil){
-//    model.navBackImage = navBackImage;
-//  }
+  if(navBackImage != nil){
+    model.navBackImage = navBackImage;
+  }
     
-    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightBtn setImage:navBackImage forState:UIControlStateNormal];
-    [rightBtn setImage:navBackImage forState:UIControlStateHighlighted];
-    [rightBtn addTarget:self action:@selector(dismissAction) forControlEvents:UIControlEventTouchUpInside];
-    model.navMoreView = rightBtn;
+//    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [rightBtn setImage:navBackImage forState:UIControlStateNormal];
+//    [rightBtn setImage:navBackImage forState:UIControlStateHighlighted];
+//    [rightBtn addTarget:self action:@selector(dismissAction) forControlEvents:UIControlEventTouchUpInside];
+//    model.navMoreView = rightBtn;
     
   if (isCustomNavBack) {
     /// 自定义返回按钮
@@ -544,7 +544,7 @@
             CGFloat width = [viewConfig floatValueForKey: @"logBtnWidth" defaultValue: 300] *zoom;
             CGFloat height = [viewConfig floatValueForKey: @"logBtnHeight" defaultValue: 40] *zoom;
             if (screenSize.height > screenSize.width) {
-                return CGRectMake((superViewSize.width-width)/2, zoom*563, width, height);
+                return CGRectMake((superViewSize.width-width)/2, zoom*582, width, height);
             } else {
                 return CGRectZero; //横屏时模拟隐藏该控件
             }
